@@ -9,7 +9,7 @@ const chrome = require('selenium-webdriver/chrome');
 
 var keijiban_url = 'https://game8.jp/minecraft/214224';//投稿したい掲示板のURL
 var user_name = "テストくん";//自分の名前を入力
-var user_text = "テストだよーん";
+var user_text = "テストだよーん";//本文
 
 //---------------------------------------------
 
@@ -29,13 +29,14 @@ var user_text = "テストだよーん";
   //掲示板のURL
   await driver.get(keijiban_url);
 
+  //--------ここから、HTMLの要素を選んで文字入力、クリック処理をしている
   
   //入力の領域をタッチ
   let dumy = await driver.findElement(By.id('js-commentFormDumy'));
   //driver.executeScript("arguments[0].scrollIntoView(true);",dumy);//入力の領域に移動
   dumy.click();
 
-  //--------ここから、HTMLの要素を選んで文字入力、クリック処理をしている
+
 
   //ユーザ名
   let send_name = await driver.findElement(By.name('archive_comment[name]'));
